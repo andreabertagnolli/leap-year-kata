@@ -10,7 +10,7 @@ class IsLeapYearTest {
     private IsLeapYear isLeapYear = new IsLeapYear();
 
     @Test
-    void typical_common_year_not_leap_year() {
+    void typical_common_year() {
         assertFalse(isLeapYear.test(2001));
     }
 
@@ -19,4 +19,8 @@ class IsLeapYearTest {
         assertTrue(isLeapYear.test(1996));
     }
 
+    @Test
+    void atypical_leap_year() {
+        assertFalse(isLeapYear.test(1900));
+    }
 }
