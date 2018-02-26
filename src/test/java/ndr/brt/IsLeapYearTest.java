@@ -20,7 +20,12 @@ class IsLeapYearTest {
     }
 
     @Test
-    void atypical_leap_year() {
+    void atypical_common_year() {
         assertFalse(isLeapYear.test(1900));
+    }
+
+    @Test
+    void atypical_leap_year() {
+        assertTrue(isLeapYear.test(2000));
     }
 }
