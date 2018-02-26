@@ -4,8 +4,12 @@ import java.util.function.Predicate;
 
 class IsLeapYear implements Predicate<Integer> {
 
-    public boolean test(Integer integer) {
-        return integer % 4 == 0 && integer % 100 != 0;
+    private Predicate<Integer> divisibleBy4 = it -> it % 4 == 0;
+    private Predicate<Integer> divisibleBy100 = it -> it % 100 == 0;
+
+    public boolean test(Integer year) {
+        return divisibleBy4.and(divisibleBy100.negate())
+                .test(year);
     }
 
 }
