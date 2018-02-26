@@ -9,7 +9,7 @@ class IsLeapYear implements Predicate<Integer> {
     private Predicate<Integer> divisibleBy400 = it -> it % 400 == 0;
 
     public boolean test(Integer year) {
-        return divisibleBy4.and(divisibleBy100.negate().or(divisibleBy400))
+        return divisibleBy400.or(divisibleBy4.and(divisibleBy100.negate()))
                 .test(year);
     }
 
